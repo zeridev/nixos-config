@@ -1,0 +1,10 @@
+{
+    "$schema": "vscode://schemas/settings/user",
+    "window.titleBarStyle": "custom",
+    "workbench.colorTheme": "5ca2846d-31a9-40b3-8908-965dad3c127d",
+    "explorer.compactFolders": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "extensions.autoUpdate": false,
+    "nix.enableLanguageServer": true,
+    "nix.serverPath": "nil"
+}
