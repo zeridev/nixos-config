@@ -13,4 +13,5 @@
 
   programs.dconf.enable = true;
   programs.git.enable = true;
+  hardware.ckb-next.enable = true;
 }
