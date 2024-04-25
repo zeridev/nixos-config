@@ -53,6 +53,9 @@
     ".config/Code/User/settings.json".source = ./config/vscode/settings.json;
     ".config/hypr/hyprland.conf".source = ./config/hyprland/hyprland.conf;
     ".config/hypr/hyprlock.conf".source = ./config/hyprland/hyprlock.conf;
+
+    # wappapers
+    ".config/wallpapers".source = ./config/wallpapers;
   };
 
   # Home Manager can also manage your environment variables through

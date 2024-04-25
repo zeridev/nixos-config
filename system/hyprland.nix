@@ -34,6 +34,7 @@
     
     github-desktop
     gnome.nautilus
+    gnome.eog
     hyprlock
   ];
 }

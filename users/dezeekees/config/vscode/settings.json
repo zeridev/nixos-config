@@ -6,5 +6,6 @@
     "workbench.iconTheme": "material-icon-theme",
     "extensions.autoUpdate": false,
     "nix.enableLanguageServer": true,
-    "nix.serverPath": "nil"
+    "nix.serverPath": "nil",
+    "git.autofetch": true
 }
