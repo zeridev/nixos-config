@@ -56,6 +56,9 @@
 
     # wappapers
     ".config/wallpapers".source = ./config/wallpapers;
+
+    # cursors
+    ".icons".source = ./config/cursors;
   };
 
   # Home Manager can also manage your environment variables through

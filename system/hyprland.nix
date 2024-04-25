@@ -36,5 +36,20 @@
     gnome.nautilus
     gnome.eog
     hyprlock
+    hyprcursor
+    wev
+    unzip
   ];
+
+  fonts = {
+    packages = with pkgs; [
+
+      (nerdfonts.override {
+        fonts = [
+          "JetBrainsMono"
+        ];
+      })
+
+    ];
+  };
 }
