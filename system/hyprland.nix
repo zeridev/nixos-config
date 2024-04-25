@@ -39,6 +39,7 @@
     hyprcursor
     wev
     unzip
+    xcur2png
   ];
 
   fonts = {
