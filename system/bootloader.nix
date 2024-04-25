@@ -18,13 +18,13 @@
       systemd.enable = true;
     };
 
-    plymouth = {
-      enable = true;
-      themePackages = with pkgs; [
-        plymouth
-      ];
-      theme = "bgrt";
-    };
+    # plymouth = {
+    #   enable = true;
+    #   themePackages = with pkgs; [
+    #     plymouth
+    #   ];
+    #   theme = "bgrt";
+    # };
 
   };
 }

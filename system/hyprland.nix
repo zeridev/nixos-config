@@ -34,5 +34,6 @@
     
     github-desktop
     gnome.nautilus
+    hyprlock
   ];
 }
