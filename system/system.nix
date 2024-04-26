@@ -10,6 +10,7 @@
     ./polkit.nix
     ./services.nix
     # ./virt.nix
+    ./anime-game.nix
   ];
 
   programs.dconf.enable = true;

@@ -26,7 +26,6 @@
     ./programs/vscode.nix
     ./programs/firefox.nix
     ./programs/easyeffects.nix
-    ./programs/anime-game.nix
 
     ./config/styling.nix
   ];
