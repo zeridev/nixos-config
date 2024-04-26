@@ -9,7 +9,7 @@
   users.users.dezeekees = {
     isNormalUser = true;
     description = "dezeekees";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 
   home-manager = {
