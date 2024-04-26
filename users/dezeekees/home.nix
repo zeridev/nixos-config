@@ -59,8 +59,8 @@
     # wappapers
     ".config/wallpapers".source = ./config/wallpapers;
 
-    # cursors
-    # ".icons".source = ./config/cursors;
+    # vencord
+    ".config/Vencord".source = ./config/vencord;
   };
 
   # Home Manager can also manage your environment variables through
