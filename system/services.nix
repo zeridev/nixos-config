@@ -11,6 +11,9 @@ in {
   services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
+  # Enable thrash
+  services.gvfs.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

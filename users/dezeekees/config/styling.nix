@@ -21,7 +21,7 @@ let
   };
 
   cursor_name = "Posys Cursor";
-  cursor_size = 24;
+  cursor_size = 18;
 
 in {
 
@@ -35,6 +35,12 @@ in {
     x11.enable = true;
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+  };
+
   gtk = {
     enable = true;
 
@@ -44,6 +50,22 @@ in {
       size = cursor_size;
     };
 
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    # gtk2.extraConfig = ''
+    #   gtk-prefer-dark-theme = 1;
+    # '';
+
+    # gtk3.extraConfig = {
+    #   gtk-prefer-dark-theme = 1;
+    # };
+
+    # gtk4.extraConfig = {
+    #   gtk-prefer-dark-theme = 1;
+    # };
   };
   
 }
