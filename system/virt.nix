@@ -13,8 +13,11 @@
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
-    qemu0vmf = true;
-    qemuRunAsRoot = true;
+    
+    qemu = {
+      ovmf.enable = true;
+      runAsRoot = true;
+    };
   };
 
   systemd.services.libvirtd = {
@@ -201,7 +204,7 @@
       mode = "0755";
     };
  
-    "libvirt/vgabios/patched.rom".source = /home/owner/Desktop/Sync/Files/Linux_Config/symlinks/patched.rom;
+    # "libvirt/vgabios/patched.rom".source = /home/owner/Desktop/Sync/Files/Linux_Config/symlinks/patched.rom;
   };
 
 }
