@@ -40,6 +40,7 @@
     wev
     unzip
     xcur2png
+    nwg-look
   ];
 
   fonts = {

@@ -27,7 +27,7 @@
     ./programs/firefox.nix
     ./programs/easyeffects.nix
 
-    ./config/cursors/cursors.nix
+    ./config/styling.nix
   ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -60,7 +60,7 @@
     ".config/wallpapers".source = ./config/wallpapers;
 
     # cursors
-    ".icons".source = ./config/cursors;
+    # ".icons".source = ./config/cursors;
   };
 
   # Home Manager can also manage your environment variables through
