@@ -44,7 +44,7 @@
     wev
     unzip
     xcur2png
-    nwg-look
+    okteta # hex editor for gpu rom editing
   ];
 
   fonts = {

@@ -9,7 +9,7 @@
     ./pipewire.nix
     ./polkit.nix
     ./services.nix
-    # ./virt.nix
+    ./virt.nix
     ./anime-game.nix
   ];
 

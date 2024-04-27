@@ -6,7 +6,7 @@
     inputs.home-manager.nixosModules.default
   ];
 
-  boot.kernelParams = [ "amd_iommu=on" "iommu=pt"];
+  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" "video=efifb:off"];
   boot.kernelModules = [ "kvm_amd" "vifo-pci" ];
 
   virtualisation.libvirtd = {
@@ -204,7 +204,7 @@
       mode = "0755";
     };
  
-    # "libvirt/vgabios/patched.rom".source = /home/owner/Desktop/Sync/Files/Linux_Config/symlinks/patched.rom;
+    "libvirt/vgabios/patched.rom".source = ../iommu/patched.rom;
   };
 
 }
