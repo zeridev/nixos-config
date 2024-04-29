@@ -110,26 +110,20 @@
         #!/run/current-system/sw/bin/bash
  
         # Debugging
-        # exec 19>/home/owner/Desktop/startlogfile
-        # BASH_XTRACEFD=19
-        # set -x
+        exec 19>/home/dezeekees/startlogfile
+        BASH_XTRACEFD=19
+        set -x
  
         # Load variables we defined
         source "/etc/libvirt/hooks/kvm.conf"
- 
-        # Change to performance governor
-        echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
  
         # Isolate host to core 0
         systemctl set-property --runtime -- user.slice AllowedCPUs=0
         systemctl set-property --runtime -- system.slice AllowedCPUs=0
         systemctl set-property --runtime -- init.scope AllowedCPUs=0
  
-        # Logout
-        source "/home/owner/Desktop/Sync/Files/Tools/logout.sh"
- 
-        # Stop display manager
-        systemctl stop display-manager.service
+        # Stop hyprland
+        hyprctl dispatch exit
  
         # Unbind VTconsoles
         echo 0 > /sys/class/vtconsole/vtcon0/bind
@@ -160,9 +154,9 @@
         #!/run/current-system/sw/bin/bash
  
         # Debugging
-        # exec 19>/home/owner/Desktop/stoplogfile
-        # BASH_XTRACEFD=19
-        # set -x
+        exec 19>/home/dezeekees/stoplogfile
+        BASH_XTRACEFD=19
+        set -x
  
         # Load variables we defined
         source "/etc/libvirt/hooks/kvm.conf"
@@ -175,7 +169,7 @@
         virsh nodedev-reattach $VIRSH_GPU_AUDIO
  
         # Read nvidia x config
-        nvidia-xconfig --query-gpu-info > /dev/null 2>&1
+        # nvidia-xconfig --query-gpu-info > /dev/null 2>&1
  
         # Load NVIDIA kernel modules
         modprobe nvidia_drm nvidia_modeset nvidia_uvm nvidia
@@ -190,21 +184,15 @@
         echo 1 > /sys/class/vtconsole/vtcon0/bind
         echo 1 > /sys/class/vtconsole/vtcon1/bind
  
-        # Start display manager
-        systemctl start display-manager.service
+        # Start hyprland
+        Hyprland
  
         # Return host to all cores
         systemctl set-property --runtime -- user.slice AllowedCPUs=0-3
         systemctl set-property --runtime -- system.slice AllowedCPUs=0-3
         systemctl set-property --runtime -- init.scope AllowedCPUs=0-3
- 
-        # Change to powersave governor
-        echo powersave | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
       '';
       mode = "0755";
     };
- 
-    "libvirt/vgabios/patched.rom".source = ../iommu/patched.rom;
   };
-
 }

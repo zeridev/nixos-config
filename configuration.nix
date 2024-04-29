@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Allow unfree packages
@@ -16,6 +16,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   system.stateVersion = "23.11";
 }

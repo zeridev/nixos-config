@@ -45,6 +45,7 @@
     unzip
     xcur2png
     okteta # hex editor for gpu rom editing
+    neofetch
   ];
 
   fonts = {
