@@ -26,6 +26,7 @@
     ./programs/vscode.nix
     ./programs/firefox.nix
     ./programs/easyeffects.nix
+    ./programs/ags.nix
 
     ./config/styling.nix
   ];
@@ -62,8 +63,8 @@
     # vencord
     ".config/Vencord".source = ./config/vencord;
 
-    #patched rom for gpu passthrough
-    "virt/patched.rom".source = "./config/vfio/patched.rom";
+    # patched rom for gpu passthrough
+    "virt/patched.rom".source = ./config/vfio/patched.rom;
   };
 
   # Home Manager can also manage your environment variables through

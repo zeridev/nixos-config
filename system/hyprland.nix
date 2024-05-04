@@ -30,12 +30,13 @@
     kitty
     wofi
 
-    (pkgs.discord.override {
-      # remove any overrides that you don't want
-      withOpenASAR = true;
-      withVencord = true;
-    })
-    
+    # (pkgs.discord.override {
+    #   # remove any overrides that you don't want
+    #   withOpenASAR = true;
+    #   withVencord = true;
+    # })
+
+    armcord
     github-desktop
     gnome.nautilus
     gnome.eog
@@ -43,9 +44,10 @@
     hyprcursor
     wev
     unzip
-    xcur2png
     okteta # hex editor for gpu rom editing
-    neofetch
+    fastfetch
+    mpv
+    transmission-gtk
   ];
 
   fonts = {
