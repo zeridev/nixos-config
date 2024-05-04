@@ -47,6 +47,7 @@
     fastfetch
     mpv
     transmission-gtk
+    htop
   ];
 
   fonts = {

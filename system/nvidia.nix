@@ -5,6 +5,8 @@
 {
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
     extraPackages = with pkgs; [
       vaapiVdpau
       libvdpau-va-gl
@@ -15,6 +17,7 @@
     modesetting.enable = true;
     open = false;
     nvidiaSettings = true;
+    powerManagement.enable = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
