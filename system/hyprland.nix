@@ -30,13 +30,12 @@
     kitty
     wofi
 
-    # (pkgs.discord.override {
-    #   # remove any overrides that you don't want
-    #   withOpenASAR = true;
-    #   withVencord = true;
-    # })
+    (pkgs.discord.override {
+      # remove any overrides that you don't want
+      withOpenASAR = true;
+      withVencord = true;
+    })
 
-    armcord
     github-desktop
     gnome.nautilus
     gnome.eog
