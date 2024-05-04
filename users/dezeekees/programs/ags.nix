@@ -7,7 +7,7 @@
 
   programs.ags = {
     enable = true;
-    configDir = "../config/ags";
+    configDir = ../config/ags;
 
     extraPackages = with pkgs; [
       gtksourceview
