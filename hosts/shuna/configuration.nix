@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
@@ -34,16 +34,26 @@
       dataDir = "/mnt/mysqldata";
     };
 
+    onlyoffice = {
+      enable = false;
+      port = 8081;
+    };
+
     cloudflared = {
       enable = true;
       tunnelId = "9bece06c-8915-4260-a21f-d433f49575af";
       ingress = {
         "cloud.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.nextcloud.port}";
+        # "onlyoffice.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.onlyoffice.port}";
       };
     };
   };
 
   programs.ssh.startAgent = true;
+
+  environment.systemPackages = [
+    inputs.agenix.packages.x86_64-linux.default
+  ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
