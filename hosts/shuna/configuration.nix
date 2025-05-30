@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -45,6 +45,18 @@
       ingress = {
         "cloud.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.nextcloud.port}";
         # "onlyoffice.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.onlyoffice.port}";
+      };
+    };
+
+    zerotier = {
+      enable = true;
+    };
+
+    minecraft = {
+      enable = true;
+      dataDir = "/mnt/other1/minecraft";
+      servers = {
+        newgame.enable = true;
       };
     };
   };
