@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
@@ -45,6 +45,10 @@
       ingress = {
         "cloud.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.nextcloud.port}";
         # "onlyoffice.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.onlyoffice.port}";
+        "jelly.dezeekees.eu" = "http://localhost:8096";
+        "sonarr.dezeekees.eu" = "http://localhost:8989";
+        "radarr.dezeekees.eu" = "http://localhost:7878";
+        "prowlarr.dezeekees.eu" = "http://localhost:9696";
       };
     };
 
@@ -58,6 +62,13 @@
       servers = {
         newgame.enable = true;
       };
+    };
+
+    nixarr = {
+      enable = true;
+      mediaDir = "/mnt/jellyfin-data";
+      stateDir = "/mnt/jellyfin-data/.state";
+      vpnPort = 51820;
     };
   };
 

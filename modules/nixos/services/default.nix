@@ -7,6 +7,7 @@
     ./cloudflared.nix
     ./onlyoffice.nix
     ./zerotier.nix
+    ./nixarr.nix
     ./minecraft
   ];
 }
