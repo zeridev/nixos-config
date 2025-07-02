@@ -42,7 +42,7 @@ in
         ];
       };
       extraApps = {
-        inherit (config.services.nextcloud.package.packages.apps) twofactor_webauthn onlyoffice;
+        inherit (config.services.nextcloud.package.packages.apps) twofactor_webauthn richdocuments;
       };
       extraAppsEnable = true;
       maxUploadSize = "50G";

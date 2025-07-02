@@ -5,7 +5,7 @@
     ./nextcloud.nix
     ./mysql.nix
     ./cloudflared.nix
-    ./onlyoffice.nix
+    ./collabora.nix
     ./zerotier.nix
     ./nixarr.nix
     ./minecraft

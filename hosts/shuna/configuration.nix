@@ -34,9 +34,11 @@
       dataDir = "/mnt/mysqldata";
     };
 
-    onlyoffice = {
-      enable = false;
-      port = 8081;
+    collabora = {
+      enable = true;
+      port = 9980;
+      wopiHosts = [ "cloud.dezeekees.eu" ];
+      serverName = "collabora.dezeekees.eu";
     };
 
     cloudflared = {
@@ -44,11 +46,11 @@
       tunnelId = "9bece06c-8915-4260-a21f-d433f49575af";
       ingress = {
         "cloud.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.nextcloud.port}";
-        # "onlyoffice.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.onlyoffice.port}";
         "jelly.dezeekees.eu" = "http://localhost:8096";
         "sonarr.dezeekees.eu" = "http://localhost:8989";
         "radarr.dezeekees.eu" = "http://localhost:7878";
         "prowlarr.dezeekees.eu" = "http://localhost:9696";
+        "collabora.dezeekees.eu" = "http://localhost:9980";
       };
     };
 
