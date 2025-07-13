@@ -3,9 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     agenix.url = "github:ryantm/agenix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-    nixarr.url = "github:rasmus-kirk/nixarr";
+
+    nixarr = {
+      url = "github:rasmus-kirk/nixarr";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
