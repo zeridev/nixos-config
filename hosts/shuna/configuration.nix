@@ -62,7 +62,7 @@
       enable = true;
       dataDir = "/mnt/other1/minecraft";
       servers = {
-        newgame.enable = true;
+        newgame.enable = false;
       };
     };
 
