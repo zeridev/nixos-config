@@ -9,5 +9,7 @@
     ./zerotier.nix
     ./nixarr.nix
     ./minecraft
+    ./soulseek.nix
+    ./navidrome.nix
   ];
 }

@@ -51,6 +51,8 @@
         "radarr.dezeekees.eu" = "http://localhost:7878";
         "prowlarr.dezeekees.eu" = "http://localhost:9696";
         "collabora.dezeekees.eu" = "http://localhost:9980";
+        "soulsearch.dezeekees.eu" = "http://localhost:5030";
+        "navi.dezeekees.eu" = "http://localhost:4533";
       };
     };
 
@@ -70,7 +72,19 @@
       enable = true;
       mediaDir = "/mnt/jellyfin-data";
       stateDir = "/mnt/jellyfin-data/.state";
-      vpnPort = 51820;
+      vpn = {
+        port = 51820;
+      };
+    };
+
+    soulseek = {
+      enable = true;
+      dataDir = "/mnt/other1/soulseek";
+    };
+
+    navidrome = {
+      enable = true;
+      musicDir = "/mnt/other1/soulseek/downloads";
     };
   };
 

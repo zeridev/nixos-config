@@ -17,10 +17,22 @@ in
       default = "/data/media/.state/nixarr";
     };
 
-    vpnPort = lib.mkOption {
-      type = lib.types.int;
-      description = "port of the vpn";
-      default = 50000;
+    vpn =  {
+      port = lib.mkOption {
+        type = lib.types.int;
+        description = "port of the vpn";
+        default = 50000;
+      };
+
+      openUdpPorts = lib.mkOption {
+        type = with lib.types; listOf int;
+        default = [];
+      };
+
+      openTcpPorts = lib.mkOption {
+        type = with lib.types; listOf int;
+        default = [];
+      };
     };
   };
 
@@ -38,8 +50,11 @@ in
 
         vpnTestService = {
           enable = true;
-          port = cfg.vpnPort;
+          port = cfg.vpn.port;
         };
+
+        openUdpPorts = cfg.vpn.openUdpPorts;
+        openTcpPorts = cfg.vpn.openUdpPorts;
       };
 
       jellyfin.enable = true;
@@ -47,7 +62,7 @@ in
       transmission = {
         enable = true;
         vpn.enable = true;
-        peerPort = cfg.vpnPort;
+        peerPort = cfg.vpn.port;
       };
 
       prowlarr.enable = true;
@@ -59,8 +74,8 @@ in
     age.secrets."nixarr-wgconf".file = wgConf;
 
     networking.firewall = {
-      allowedTCPPorts = [ cfg.vpnPort ];
-      allowedUDPPorts = [ cfg.vpnPort ];
+      allowedTCPPorts = [ cfg.vpn.port ];
+      allowedUDPPorts = [ cfg.vpn.port ];
     };
 
   };

@@ -3,4 +3,5 @@ let
 in {
   "cloudflared.age".publicKeys = [ shuna ];
   "nixarr-wgconf.age".publicKeys = [ shuna ];
+  "soulseek-envfile.age".publicKeys = [ shuna ];
 }
