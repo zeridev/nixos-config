@@ -21,6 +21,7 @@
   networking.hostName = "shuna"; # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
   services.openssh.enable = true;
+  services.tailscale.enable = true;
 
   myServices = {
     nextcloud = {
