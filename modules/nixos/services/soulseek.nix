@@ -28,6 +28,7 @@ in
       enable = true;
       environmentFile = config.age.secrets."soulseek-envfile".path;
       domain = null;
+      group = "music";
 
       settings = {
         directories = {

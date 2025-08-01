@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -85,13 +85,15 @@
 
     navidrome = {
       enable = true;
-      musicDir = "/mnt/other1/soulseek/downloads";
+      musicDir = "/mnt/other1/music";
     };
   };
 
   programs.ssh.startAgent = true;
 
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
+    beets
+  ] ++ [
     inputs.agenix.packages.x86_64-linux.default
   ];
 

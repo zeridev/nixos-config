@@ -4,4 +4,5 @@ in {
   "cloudflared.age".publicKeys = [ shuna ];
   "nixarr-wgconf.age".publicKeys = [ shuna ];
   "soulseek-envfile.age".publicKeys = [ shuna ];
+  "navidrome-env.age".publicKeys = [ shuna ];
 }

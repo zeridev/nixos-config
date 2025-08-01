@@ -5,6 +5,12 @@
     ./dezeekees.nix
   ];
 
-  users.dezeekees.enable =
+  users = {
+    dezeekees.enable =
     lib.mkDefault true;
+
+    groups = {
+      music = {};
+    };
+  };
 }
