@@ -10,7 +10,6 @@ in
     musicDir = lib.mkOption {
       description = "where the music is at";
     };
-
   };
 
   config = lib.mkIf cfg.enable {

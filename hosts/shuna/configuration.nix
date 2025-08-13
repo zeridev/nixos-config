@@ -87,6 +87,11 @@
       enable = true;
       musicDir = "/mnt/other1/music";
     };
+
+    copyparty = {
+      enable = true;
+      port = 3210;
+    };
   };
 
   programs.ssh.startAgent = true;

@@ -5,4 +5,5 @@ in {
   "nixarr-wgconf.age".publicKeys = [ shuna ];
   "soulseek-envfile.age".publicKeys = [ shuna ];
   "navidrome-env.age".publicKeys = [ shuna ];
+  "copyparty-passwd-zeri.age".publicKeys = [ shuna ];
 }

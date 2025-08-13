@@ -7,6 +7,7 @@
 
     agenix.url = "github:ryantm/agenix";
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    copyparty.url = "github:9001/copyparty";
 
     nixarr = {
       url = "github:rasmus-kirk/nixarr";
@@ -15,7 +16,7 @@
   };
 
   outputs =
-    { self, nixpkgs, agenix, nix-minecraft, nixarr, ... }@inputs:
+    { self, nixpkgs, agenix, nix-minecraft, nixarr, copyparty, ... }@inputs:
     let
 
     in
@@ -30,10 +31,12 @@
               agenix.nixosModules.default
               nix-minecraft.nixosModules.minecraft-servers
               nixarr.nixosModules.default
+              copyparty.nixosModules.default
             ];
 
             nixpkgs.overlays = [
               nix-minecraft.overlay
+              copyparty.overlays.default
             ];
 
             _module.args = {

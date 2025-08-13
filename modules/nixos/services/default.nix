@@ -11,5 +11,6 @@
     ./minecraft
     ./soulseek.nix
     ./navidrome.nix
+    ./copyparty.nix
   ];
 }
