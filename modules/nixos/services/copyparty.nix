@@ -39,7 +39,8 @@ in
     age.secrets."copyparty-passwd-zeri" = {
       file = zeriPasswordFile;
       owner = "copyparty";
-      group = "copyparty";
     };
+
+    users.users.copyparty.extraGroups = [ "music" ];
   };
 }
