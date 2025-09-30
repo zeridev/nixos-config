@@ -2,8 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, inputs, pkgs, ... }:
-
+{
+  config,
+  inputs,
+  pkgs,
+  flakeRoot,
+  ...
+}:
+let
+  gitlabRunnerAppetit = "${flakeRoot}/secrets/gitlab-runner-appetit.age";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -92,16 +100,41 @@
       enable = true;
       port = 3210;
     };
+
+    docker = {
+      enable = true;
+      data-root = "/mnt/other1/docker-data";
+    };
   };
 
   programs.ssh.startAgent = true;
 
-  environment.systemPackages = with pkgs; [
-    beets
-    btop
-  ] ++ [
-    inputs.agenix.packages.x86_64-linux.default
-  ];
+  environment.systemPackages =
+    with pkgs;
+    [
+      beets
+      btop
+    ]
+    ++ [
+      inputs.agenix.packages.x86_64-linux.default
+    ];
+
+  # Gitlab runner for appetit group project
+  virtualisation.oci-containers.containers.gitlab-runner = {
+    image = "gitlab/gitlab-runner:latest";
+    autoStart = true;
+    ports = [ ]; # runner doesn't expose HTTP ports by default
+    volumes = [
+      "/srv/gitlab-runner/config:/etc/gitlab-runner"
+      "/var/run/docker.sock:/var/run/docker.sock"
+    ];
+    environment = {
+      CI_SERVER_URL = "https://projects.fhict.nl";
+      RUNNER_EXECUTOR = "docker";
+    };
+  };
+
+  age.secrets."gitlab-runner-appetit".file = gitlabRunnerAppetit;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

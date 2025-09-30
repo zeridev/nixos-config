@@ -12,5 +12,6 @@
     ./soulseek.nix
     ./navidrome.nix
     ./copyparty.nix
+    ./docker.nix
   ];
 }

@@ -2,7 +2,7 @@
 set -e
 
 # Update flake inputs
-nix flake update ~/flake
+nix flake update
 
 # Rebuild NixOS
 sudo nixos-rebuild switch --flake ~/flake
