@@ -123,6 +123,7 @@ in
   virtualisation.oci-containers.containers.gitlab-runner = {
     image = "gitlab/gitlab-runner:latest";
     autoStart = true;
+    privileged = true;
     ports = [ ]; # runner doesn't expose HTTP ports by default
     volumes = [
       "/srv/gitlab-runner/config:/etc/gitlab-runner"
