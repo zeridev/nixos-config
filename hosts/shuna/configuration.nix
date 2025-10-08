@@ -6,11 +6,21 @@
   config,
   inputs,
   pkgs,
-  flakeRoot,
+  lib,
   ...
 }:
 let
-  gitlabRunnerAppetit = "${flakeRoot}/secrets/gitlab-runner-appetit.age";
+    zfsCompatibleKernelPackages = lib.filterAttrs (
+    name: kernelPackages:
+    (builtins.match "linux_[0-9]+_[0-9]+" name) != null
+    && (builtins.tryEval kernelPackages).success
+    && (!kernelPackages.${config.boot.zfs.package.kernelModuleAttribute}.meta.broken)
+  ) pkgs.linuxKernel.packages;
+  latestKernelPackage = lib.last (
+    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+      builtins.attrValues zfsCompatibleKernelPackages
+    )
+  );
 in
 {
   imports = [
@@ -24,17 +34,33 @@ in
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+
+    zfs = {
+      extraPools = [ "tank" ];
+    };
+
+    supportedFilesystems = {
+      zfs = true;
+    };
+
+    kernelPackages = latestKernelPackage;
+  };
+
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
   };
 
   networking.hostName = "shuna"; # Define your hostname.
   networking.networkmanager.enable = true; # Enable networking
+  networking.hostId = "c7c9475a";
   services.openssh.enable = true;
   services.tailscale.enable = true;
 
   myServices = {
     nextcloud = {
       enable = true;
-      dataDir = "/mnt/nextcould-data";
+      dataDir = "/mnt/chonker/nextcloud-data";
       port = 8080;
     };
 
@@ -134,8 +160,6 @@ in
       RUNNER_EXECUTOR = "docker";
     };
   };
-
-  age.secrets."gitlab-runner-appetit".file = gitlabRunnerAppetit;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
