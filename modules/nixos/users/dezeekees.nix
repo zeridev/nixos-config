@@ -17,6 +17,7 @@ in
         "networkmanager"
         "wheel"
         "music"
+        "copyparty"
       ];
     };
 
