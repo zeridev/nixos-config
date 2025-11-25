@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ./newgame.nix
+    ./gregtech.nix
   ];
 
   options.myServices.minecraft = {

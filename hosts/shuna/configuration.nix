@@ -99,7 +99,7 @@ in
       enable = true;
       dataDir = "/mnt/other1/minecraft";
       servers = {
-        newgame.enable = false;
+        gregtech.enable = true;
       };
     };
 
@@ -140,6 +140,7 @@ in
     [
       beets
       btop
+      screen
     ]
     ++ [
       inputs.agenix.packages.x86_64-linux.default
