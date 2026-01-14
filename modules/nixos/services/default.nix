@@ -8,10 +8,10 @@
     ./collabora.nix
     ./zerotier.nix
     ./nixarr.nix
-    ./minecraft
     ./soulseek.nix
     ./navidrome.nix
     ./copyparty.nix
     ./docker.nix
+    ./hytale-server.nix
   ];
 }

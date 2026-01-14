@@ -95,14 +95,6 @@ in
       enable = true;
     };
 
-    minecraft = {
-      enable = true;
-      dataDir = "/mnt/other1/minecraft";
-      servers = {
-        gregtech.enable = true;
-      };
-    };
-
     nixarr = {
       enable = true;
       mediaDir = "/mnt/jellyfin-data";
@@ -130,6 +122,11 @@ in
     docker = {
       enable = true;
       data-root = "/mnt/other1/docker-data";
+    };
+
+    hytale-server = {
+      enable = true;
+      dataDir = "/mnt/other1/hytale-server";
     };
   };
 
