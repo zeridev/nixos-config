@@ -34,48 +34,62 @@ in
       allowedUDPPorts = [ 5520 ];
     };
 
-    systemd.services = {
-      hytale-server = {
-        description = "Hytale Server";
-        after = [
-          "network.target"
-          "network-online.target"
-        ];
-        wants = [ "network-online.target" ];
+    systemd = {
+      services = {
+        hytale-server = {
+          description = "Hytale Server";
+          after = [
+            "network.target"
+            "network-online.target"
+          ];
+          wants = [ "network-online.target" ];
 
-        serviceConfig = {
-          User = "hytale";
-          WorkingDirectory = cfg.dataDir;
-          ExecStart = "${javaVersion}/bin/java -Xmx8G -XX:AOTCache=./server/Server/HytaleServer.aot -jar ./server/Server/HytaleServer.jar --assets ./server/Assets.zip --bind 0.0.0.0:5520";
-          Restart = "always";
-          RestartSec = "10s";
-          LimitNOFILE = 65536;
+          serviceConfig = {
+            User = "hytale";
+            WorkingDirectory = cfg.dataDir;
+            ExecStart = "${javaVersion}/bin/java -Xmx8G -XX:AOTCache=./server/Server/HytaleServer.aot -jar ./server/Server/HytaleServer.jar --assets ./server/Assets.zip --bind 0.0.0.0:5520";
+            Restart = "always";
+            RestartSec = "10s";
+            LimitNOFILE = 65536;
 
-          StandardInput = "journal";
-          StandardOutput = "journal";
-          StandardError = "journal";
+            StandardInput = "journal";
+            StandardOutput = "journal";
+            StandardError = "journal";
+          };
+
+          wantedBy = [ "multi-user.target" ];
         };
 
-        wantedBy = [ "multi-user.target" ];
+        hytale-server-update = {
+          description = "Hytale Server Updater";
+
+          conflicts = [ "hytale-server.service" ];
+          after = [ "hytale-server.service" ];
+
+          serviceConfig = {
+            Type = "oneshot";
+            User = "hytale";
+            WorkingDirectory = cfg.dataDir;
+            ExecStart = [
+              "/mnt/other1/hytale-server/hytale-downloader-linux-amd64 -download-path ./server.zip"
+              "${pkgs.unzip}/bin/unzip -o ./server.zip -d ./server"
+            ];
+          };
+        };
       };
 
-      hytale-server-update = {
-        description = "Hytale Server Updater";
+      timers = {
+        hytale-server-update = {
+          description = "Daily Hytale Server Update Check";
 
-        conflicts = [ "hytale-server.service" ];
-        after = [ "hytale-server.service" ];
+          wantedBy = [ "timers.target" ];
 
-        serviceConfig = {
-          Type = "oneshot";
-          User = "hytale";
-          WorkingDirectory = cfg.dataDir;
-          ExecStart = [
-            "/mnt/other1/hytale-server/hytale-downloader-linux-amd64 -download-path ./server.zip"
-            "${pkgs.unzip}/bin/unzip ./server.zip -d ./server"
-          ];
+          timerConfig = {
+            OnCalendar = "04:00";
+            Persistent = true;
+          };
         };
       };
     };
   };
-
 }
