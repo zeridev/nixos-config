@@ -80,7 +80,7 @@ in
       enable = true;
       tunnelId = "9bece06c-8915-4260-a21f-d433f49575af";
       ingress = {
-        "cloud.dezeekees.eu" = "http://localhost:${builtins.toString config.myServices.nextcloud.port}";
+        "cloud.dezeekees.eu" = "http://localhost:${toString config.myServices.nextcloud.port}";
         "jelly.dezeekees.eu" = "http://localhost:8096";
         "sonarr.dezeekees.eu" = "http://localhost:8989";
         "radarr.dezeekees.eu" = "http://localhost:7878";
