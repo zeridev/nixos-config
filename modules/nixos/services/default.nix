@@ -13,5 +13,6 @@
     ./copyparty.nix
     ./docker.nix
     ./hytale-server.nix
+    ./satisfactory-server.nix
   ];
 }

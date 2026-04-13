@@ -10,8 +10,8 @@
     };
 
     nix-minecraft = {
-        url = "github:Infinidoge/nix-minecraft";
-        inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     copyparty = {

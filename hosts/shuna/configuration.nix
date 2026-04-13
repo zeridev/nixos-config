@@ -125,8 +125,13 @@ in
     };
 
     hytale-server = {
-      enable = true;
+      enable = false;
       dataDir = "/mnt/other1/hytale-server";
+    };
+
+    satisfactory-server = {
+      enable = true;
+      dataDir = "/mnt/other1/satisfactory-server";
     };
   };
 
@@ -142,22 +147,6 @@ in
     ++ [
       inputs.agenix.packages.x86_64-linux.default
     ];
-
-  # Gitlab runner for appetit group project
-  virtualisation.oci-containers.containers.gitlab-runner = {
-    image = "gitlab/gitlab-runner:latest";
-    autoStart = true;
-    privileged = true;
-    ports = [ ]; # runner doesn't expose HTTP ports by default
-    volumes = [
-      "/srv/gitlab-runner/config:/etc/gitlab-runner"
-      "/var/run/docker.sock:/var/run/docker.sock"
-    ];
-    environment = {
-      CI_SERVER_URL = "https://projects.fhict.nl";
-      RUNNER_EXECUTOR = "docker";
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
