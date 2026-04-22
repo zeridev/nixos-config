@@ -63,6 +63,10 @@ in
         enable = true;
         vpn.enable = true;
         peerPort = cfg.vpn.port;
+        extraSettings = {
+          ratio-limit-enabled = true;
+          ratio-limit = 0.1;
+        };
       };
 
       prowlarr.enable = true;
