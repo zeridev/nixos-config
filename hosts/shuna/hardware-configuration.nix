@@ -34,11 +34,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/mnt/nextcould-data" =
-    { device = "/dev/disk/by-uuid/c777cae5-5576-42a3-86c6-88466fa8dafe";
-      fsType = "ext4";
-    };
-
   fileSystems."/mnt/jellyfin-data" =
     { device = "/dev/disk/by-uuid/14a5d96b-edf5-4ee7-94d7-6b8ce7e16eec";
       fsType = "ext4";
