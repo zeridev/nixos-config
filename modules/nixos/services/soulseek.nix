@@ -38,6 +38,7 @@ in
 
         shares.directories = [
           "${cfg.dataDir}/share"
+          "/mnt/other1/music"
         ];
 
         web = {

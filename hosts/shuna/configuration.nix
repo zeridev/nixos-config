@@ -122,6 +122,9 @@ in
     docker = {
       enable = true;
       data-root = "/mnt/other1/docker-data";
+
+      picard.enable = true;
+      explo.enable = true;
     };
 
     hytale-server = {

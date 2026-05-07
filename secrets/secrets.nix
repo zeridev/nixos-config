@@ -7,4 +7,5 @@ in {
   "navidrome-env.age".publicKeys = [ shuna ];
   "copyparty-passwd-zeri.age".publicKeys = [ shuna ];
   "gitlab-runner-appetit.age".publicKeys = [ shuna ];
+  "explo-env.age".publicKeys = [ shuna ];
 }
