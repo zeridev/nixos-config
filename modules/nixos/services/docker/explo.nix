@@ -20,7 +20,7 @@ in
       environment = {
         TZ = "Europe/Amsterdam";
 
-        WEEKLY_EXPLORATION_SCHEDULE = "15 00 * * 2";
+        WEEKLY_EXPLORATION_SCHEDULE = "00 04 * * 3";
         WEEKLY_EXPLORATION_FLAGS = "";
       };
 
