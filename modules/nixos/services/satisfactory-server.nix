@@ -44,7 +44,7 @@ in
           wants = [ "network-online.target" ];
 
           serviceConfig = {
-            ExecStartPre = "${pkgs.steamcmd}/bin/steamcmd +force_install_dir \"${cfg.dataDir}\" +login anonymous +app_update 1690800 -beta experimental validate +quit";
+            ExecStartPre = "${pkgs.steamcmd}/bin/steamcmd +force_install_dir \"${cfg.dataDir}\" +login anonymous +app_update 1690800 validate +quit";
             ExecStart = "${cfg.dataDir}/FactoryServer.sh";
             ExecStopPost="${pkgs.coreutils}/bin/sleep 60";
             User = "satisfactory";
