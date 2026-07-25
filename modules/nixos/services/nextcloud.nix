@@ -25,7 +25,7 @@ in
 
     services.nextcloud = {
       enable = true;
-      package = with pkgs; nextcloud33;
+      package = with pkgs; nextcloud34;
       hostName = "nextcloud.local";
       datadir = cfg.dataDir;
       database.createLocally = true;
