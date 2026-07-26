@@ -19,14 +19,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nixarr = {
-    #   url = "github:rasmus-kirk/nixarr";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # temporarily use forked version until merge request is accepted:
     nixarr = {
-      url = "github:samagcarr/nixarr/patch-1";
+      url = "github:rasmus-kirk/nixarr";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
